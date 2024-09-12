@@ -82,7 +82,7 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **Monitoramento e Interação**:  
   O usuário pode visualizar os dados e controlar o sistema pela interface gráfica.
 
-### Este projeto foi desenvolvido pela equipe formada por:
+## Este projeto foi desenvolvido pela equipe formada por:
 
 - **Lucas Venero**
 - **Michael Varaldo**
