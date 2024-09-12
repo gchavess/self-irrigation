@@ -1,16 +1,10 @@
 # Projeto: Sistema de Irrigação Inteligente com Arduino e IA
 
----
-
 ## 1. Introdução
 O projeto visa desenvolver um sistema automatizado de irrigação para plantas, que utiliza sensores de umidade do solo conectados a um Arduino para medir os níveis de umidade. Através de um modelo de Inteligência Artificial (IA), o sistema será capaz de acionar a irrigação apenas quando necessário, economizando água e garantindo a saúde da planta.
 
----
-
 ## 2. Objetivo
 Criar um sistema de irrigação inteligente que monitora em tempo real a umidade do solo e aciona automaticamente a irrigação quando os níveis de umidade caem abaixo de um determinado valor, utilizando IA para otimizar os momentos de irrigação.
-
----
 
 ## 3. Especificações Funcionais (RF)
 
@@ -22,8 +16,6 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **RF06**: O usuário deve poder monitorar o status do sistema em uma interface (app ou web), visualizando os níveis de umidade e o estado da irrigação (ativada/desativada).
 - **RF07**: Alertas devem ser enviados ao usuário quando o sistema identificar uma falha (como falta de água ou problema no sensor).
 
----
-
 ## 4. Especificações Não Funcionais (RNF)
 
 - **RNF01**: O sistema deve ser eficiente no consumo de energia, podendo operar com baterias ou energia solar.
@@ -32,8 +24,6 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **RNF04**: O sistema deve ser modular, permitindo a adição de mais sensores ou componentes de irrigação conforme necessário.
 - **RNF05**: O tempo de resposta entre a leitura da umidade do solo e a ativação da irrigação deve ser de no máximo 10 segundos.
 - **RNF06**: O sistema deve continuar funcionando off-line (modo manual), acionando a irrigação baseada em umidade crítica se perder conexão com a IA.
-
----
 
 ## 5. Arquitetura do Sistema
 
@@ -57,8 +47,6 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **Fonte de Energia Solar/Baterias**:  
   Opcional para sistemas autônomos, garantindo energia em áreas remotas.
 
----
-
 ### 5.2. Componentes de Software
 
 - **Arduino IDE**:  
@@ -72,8 +60,7 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 
 - **Aplicativo ou Interface Web**:  
   Interface gráfica para o usuário monitorar o sistema e, opcionalmente, interagir com o modo manual.
-
----
+  
 
 ### 5.3. Fluxo de Dados
 
