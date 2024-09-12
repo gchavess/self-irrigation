@@ -31,7 +31,7 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **Arduino Uno/Nano**:  
   Responsável por coletar os dados do sensor de umidade e acionar a bomba de água.
 
-- **Protoboard**:
+- **Protoboard**:  
   Usada para montar circuitos eletrônicos temporariamente sem a necessidade de substituição.
 
 - **Resistor 220R (1/4W)**:
