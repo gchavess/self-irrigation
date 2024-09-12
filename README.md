@@ -8,13 +8,12 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 
 ## 3. Especificações Funcionais (RF)
 
-- **RF01**: O sistema deve medir continuamente a umidade do solo através de um sensor conectado ao Arduino.
-- **RF02**: O Arduino deve enviar os dados coletados para a unidade de controle, onde serão processados por um modelo de IA.
+- **RF01**: O sistema deve medir de hora em hora a umidade do solo através de um sensor conectado ao Arduino/Esp-01s.
+- **RF02**: O Arduino/Esp-01s deve enviar os dados coletados para a unidade de controle, onde serão processados por um modelo de IA.
 - **RF03**: A IA deve prever a necessidade de irrigação com base em condições climáticas (se disponível), histórico de irrigação e umidade do solo.
-- **RF04**: Quando a IA identificar que é necessário irrigar, o sistema deve acionar uma bomba de água conectada ao Arduino.
-- **RF05**: O sistema deve ser capaz de operar no modo manual, permitindo que o usuário ative ou desative a irrigação conforme necessário.
-- **RF06**: O usuário deve poder monitorar o status do sistema em uma interface (app ou web), visualizando os níveis de umidade e o estado da irrigação (ativada/desativada).
-- **RF07**: Alertas devem ser enviados ao usuário quando o sistema identificar uma falha (como falta de água ou problema no sensor).
+- **RF04**: O sistema deve ser capaz de operar no modo manual, permitindo que o usuário ative ou desative a irrigação conforme necessário.
+- **RF05**: O usuário deve poder monitorar o status do sistema em uma interface (app ou web), visualizando os níveis de umidade e o estado da irrigação (ativada/desativada).
+- **RF06**: Alertas devem ser enviados ao usuário quando o sistema identificar uma falha (como falta de água ou problema no sensor).
 
 ## 4. Especificações Não Funcionais (RNF)
 
@@ -32,20 +31,32 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **Arduino Uno/Nano**:  
   Responsável por coletar os dados do sensor de umidade e acionar a bomba de água.
 
+- **Protoboard**:
+  Usada para montar circuitos eletrônicos temporariamente sem a necessidade de substituição.
+
+- **Resistor 220R (1/4W)**:
+   Usado para limitar a corrente no circuitos.
+
 - **Sensor de Umidade do Solo**:  
   Mede a umidade do solo em tempo real, enviando dados ao Arduino.
 
 - **Módulo de Relé**:  
   Controla a bomba de água ou sistema de irrigação baseado no sinal do Arduino.
 
-- **Bomba de Água**:  
+- **Válvula Solenoide 12V**:  
   Acionada pelo relé, a bomba envia água para o sistema de irrigação.
+  
+- **Mangueira de Jardim**
+  Conectada a valvula solenoide e torneira, para levar a água ate a planta
+    
+- **Engate Rápido**
+  Usado para conectar a Mangueia na valvula solenoide e na torneira
 
-- **Módulo de Comunicação (Wi-Fi ou LoRa)**:  
+- **Módulo Esp8266 Esp01s Wi-Fi**:  
   Envia os dados do Arduino para a nuvem ou servidor local, onde a IA processa as informações.
 
-- **Fonte de Energia Solar/Baterias**:  
-  Opcional para sistemas autônomos, garantindo energia em áreas remotas.
+- **Fonte de Energia 12V**:  
+  Fornece uma tensão constante de 12 volts para alimentar oa dispositivos e equipamentos.
 
 ### 5.2. Componentes de Software
 
@@ -65,19 +76,19 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 ### 5.3. Fluxo de Dados
 
 - **Coleta de Dados**:  
-  O sensor de umidade do solo envia dados continuamente ao Arduino.
+  O sensor de umidade do solo envia dados continuamente ao Arduino/Esp01s.
 
 - **Processamento Local**:  
-  O Arduino pode realizar checagens básicas, como umidade crítica para acionamento emergencial.
+  O Arduino/Esp01s realizar a checagens da umidade e gera log.
+
+ - **Acionamento da Bomba de Água**:  
+  Caso a leitura esteja abaixo da cadastrada, o Arduino aciona a bomba através do módulo de relé. 
 
 - **Envio de Dados à Nuvem/Servidor**:  
-  Via Wi-Fi ou LoRa, os dados são enviados ao servidor onde o modelo de IA está hospedado.
+  Via Modulo Esp/01 Wi-Fi, os dados são enviados ao servidor onde o modelo de IA está hospedado.
 
 - **Análise por IA**:  
   A IA analisa os dados do sensor e decide se a irrigação deve ser ativada.
-
-- **Acionamento da Bomba de Água**:  
-  Caso a IA decida que é necessário irrigar, o Arduino aciona a bomba através do módulo de relé.
 
 - **Monitoramento e Interação**:  
   O usuário pode visualizar os dados e controlar o sistema pela interface gráfica.
