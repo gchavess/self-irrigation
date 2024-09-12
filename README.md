@@ -34,8 +34,8 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **Protoboard**:  
   Usada para montar circuitos eletrônicos temporariamente sem a necessidade de substituição.
 
-- **Resistor 220R (1/4W)**:
-   Usado para limitar a corrente no circuitos.
+- **Resistor 220R (1/4W)**:  
+  Usado para limitar a corrente no circuitos.
 
 - **Sensor de Umidade do Solo**:  
   Mede a umidade do solo em tempo real, enviando dados ao Arduino.
@@ -45,12 +45,12 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 
 - **Válvula Solenoide 12V**:  
   Acionada pelo relé, a bomba envia água para o sistema de irrigação.
-  
-- **Mangueira de Jardim**
-  Conectada a valvula solenoide e torneira, para levar a água ate a planta
-    
-- **Engate Rápido**
-  Usado para conectar a Mangueia na valvula solenoide e na torneira
+
+- **Mangueira de Jardim**:  
+  Conectada a valvula solenoide e torneira, para levar a água ate a planta.
+
+- **Engate Rápido**:  
+  Usado para conectar a Mangueia na valvula solenoide e na torneira.
 
 - **Módulo Esp8266 Esp01s Wi-Fi**:  
   Envia os dados do Arduino para a nuvem ou servidor local, onde a IA processa as informações.
