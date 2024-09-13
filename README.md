@@ -1,18 +1,18 @@
 # Projeto: Sistema de Irrigação Inteligente com Arduino e IA
 
 ## 1. Introdução
-O projeto visa desenvolver um sistema automatizado de irrigação para plantas, que utiliza sensores de umidade do solo conectados a um Arduino para medir os níveis de umidade. Através de um modelo de Inteligência Artificial (IA), o sistema será capaz de acionar a irrigação apenas quando necessário, economizando água e garantindo a saúde da planta.
+O projeto visa desenvolver um sistema automatizado de irrigação para plantas, que utiliza sensores de umidade do solo, luminosidade e temperatura conectados a um Arduino que realizarão as medição dos dados. Através de um modelo de Inteligência Artificial (IA), o sistema será capaz de acionar a irrigação apenas quando necessário, economizando água e garantindo a saúde da planta.
 
 ## 2. Objetivo
-Criar um sistema de irrigação inteligente que monitora em tempo real a umidade do solo e aciona automaticamente a irrigação quando os níveis de umidade caem abaixo de um determinado valor, utilizando IA para otimizar os momentos de irrigação.
+Criar um sistema de irrigação inteligente que monitora em tempo real a umidade do solo a lumosidade e a temperatura e aciona automaticamente a irrigação quando os níveis dos dados estivem abaixo dos recomendados, utilizando IA para otimizar os momentos de irrigação.
 
 ## 3. Especificações Funcionais (RF)
 
-- **RF01**: O sistema deve medir de hora em hora a umidade do solo através de um sensor conectado ao Arduino/Esp-01s.
+- **RF01**: O sistema deve medir periodicamente a umidade, luminosida e temperatura através de sensores conectados ao Arduino/Esp-01s.
 - **RF02**: O Arduino/Esp-01s deve enviar os dados coletados para a unidade de controle, onde serão processados por um modelo de IA.
-- **RF03**: A IA deve prever a necessidade de irrigação com base em condições climáticas (se disponível), histórico de irrigação e umidade do solo.
+- **RF03**: A IA deve prever a necessidade de irrigação com base em condições climáticas (se disponível), histórico de irrigação e os dados coletados.
 - **RF04**: O sistema deve ser capaz de operar no modo manual, permitindo que o usuário ative ou desative a irrigação conforme necessário.
-- **RF05**: O usuário deve poder monitorar o status do sistema em uma interface (app ou web), visualizando os níveis de umidade e o estado da irrigação (ativada/desativada).
+- **RF05**: O usuário deve poder monitorar o status do sistema em uma interface (app ou web), visualizando os níveis de umidade, luminosidade e temperatura e o estado da irrigação (ativada/desativada).
 - **RF06**: Alertas devem ser enviados ao usuário quando o sistema identificar uma falha (como falta de água ou problema no sensor).
 
 ## 4. Especificações Não Funcionais (RNF)
@@ -21,7 +21,7 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 - **RNF02**: A comunicação entre o Arduino e o servidor onde o modelo de IA está hospedado deve ser segura e rápida (utilizando Wi-Fi ou rede LoRa).
 - **RNF03**: A interface do sistema deve ser amigável e acessível via dispositivos móveis.
 - **RNF04**: O sistema deve ser modular, permitindo a adição de mais sensores ou componentes de irrigação conforme necessário.
-- **RNF05**: O tempo de resposta entre a leitura da umidade do solo e a ativação da irrigação deve ser de no máximo 10 segundos.
+- **RNF05**: O tempo de resposta entre a leitura dos sensores e a ativação da irrigação deve ser de no máximo 10 segundos.
 - **RNF06**: O sistema deve continuar funcionando off-line (modo manual), acionando a irrigação baseada em umidade crítica se perder conexão com a IA.
 
 ## 5. Arquitetura do Sistema
@@ -39,6 +39,12 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 
 - **Sensor de Umidade do Solo**:  
   Mede a umidade do solo em tempo real, enviando dados ao Arduino.
+
+- **Sensor de Luminosidade**:  
+  Mede a Luminosidade, enviando dados ao Arduino.
+
+- **Sensor de Temperatura**:  
+  Mede a Temperatura, enviando dados ao Arduino.
 
 - **Módulo de Relé**:  
   Controla a bomba de água ou sistema de irrigação baseado no sinal do Arduino.
@@ -76,13 +82,10 @@ Criar um sistema de irrigação inteligente que monitora em tempo real a umidade
 ### 5.3. Fluxo de Dados
 
 - **Coleta de Dados**:  
-  O sensor de umidade do solo envia dados continuamente ao Arduino/Esp01s.
+  O sensor de umidade/luminosidade/temperatura enviam dados continuamente ao Arduino/Esp01s.
 
 - **Processamento Local**:  
-  O Arduino/Esp01s realizar a checagens da umidade e gera log.
-
- - **Acionamento da Bomba de Água**:  
-  Caso a leitura esteja abaixo da cadastrada, o Arduino aciona a bomba através do módulo de relé. 
+  O Arduino/Esp01s realizar a checagens e geram o log.
 
 - **Envio de Dados à Nuvem/Servidor**:  
   Via Modulo Esp/01 Wi-Fi, os dados são enviados ao servidor onde o modelo de IA está hospedado.
