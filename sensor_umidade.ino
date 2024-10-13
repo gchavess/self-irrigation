@@ -1,14 +1,13 @@
-#define HUMIDADE_PIN A2  // Pino analógico onde o sensor de umidade simples está conectado
+#define HUMIDADE_PIN A2 
 
 void setup() {
-  Serial.begin(9600);  // Inicializa a comunicação serial
+  Serial.begin(9600); 
 }
 
 void loop() {
-  // Sensor de umidade simples
-  int humidadeValue = analogRead(HUMIDADE_PIN);  // Lê o valor analógico do sensor de umidade
+  int humidadeValue = analogRead(HUMIDADE_PIN);  
   Serial.print("Umidade do solo: ");
-  Serial.println(humidadeValue);  // Exibe o valor no monitor serial
+  Serial.println(humidadeValue); 
 
-  delay(2000);  // Aguarda 2 segundos antes da próxima leitura
+  delay(2000); 
 }
